@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 #data
-Shop/frontend/src/assets
+src/assets
