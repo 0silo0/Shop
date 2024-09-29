@@ -22,21 +22,11 @@ export default function Header() {
             });
         }
     }, [menu]);
+
     
     return (
         <div className='navbar'>
             <div className='nav-logo'>
-                <img id='image' src={logo} alt="" />
-                <p>Tanuki</p>
-            </div>
-            <ul className="nav-menu">
-                <li>Shop <hr /></li>
-                <li>Men</li>
-                <li>Women</li>
-            </ul>
-            <div className='nav-login-cart'>
-                <button>Login</button>
-                <img src={backpack} alt="" />
                 <Link to='/'>
                 <img id='image' src={logo} alt="" /></Link>
                 <p>Tanuki</p>
@@ -49,11 +39,16 @@ export default function Header() {
                 <div className="underline" style={underlineStyle}></div>
             </ul>
             <div className='nav-login-cart'>
-                <Link to='/login'><button>Login</button></Link>
                 <Link to='/cart'>
                     <img src={backpack} alt="" />
                 </Link>
                 <div className="nav-cart-count">0</div>
+                {/* <Link to='/login'><button>Login</button></Link> */}
+                <input type="checkbox" id="burger-checkbox" className="burger-checkbox" />
+                <label htmlFor="burger-checkbox" className="burger"></label>
+                <ul className="menu-list">
+                    <li><Link to='/login'><button>Login</button></Link></li>
+                </ul>
             </div>
         </div>
     )

@@ -83,3 +83,7 @@ button:hover {
 button:focus {
   outline: red;
 } */
+
+*{
+  margin: 0;
+}
