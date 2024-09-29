@@ -32,10 +32,10 @@ export default function Header() {
                 <p>Tanuki</p>
             </div>
             <ul className="nav-menu">
-                <li ref={(el) => menuRef.current[0] = el} className={menu === 'shop' ? 'active' : ''} onClick={()=>{setMenu('shop')}}><Link style={{ textDecoration: 'none' }} to='/'>Shop</Link></li>
-                <li ref={(el) => menuRef.current[1] = el} className={menu === 'men' ? 'active' : ''} onClick={()=>{setMenu('men')}}><Link style={{ textDecoration: 'none' }} to='/mens'>Men</Link></li>
-                <li ref={(el) => menuRef.current[2] = el} className={menu === 'women' ? 'active' : ''} onClick={()=>{setMenu('women')}}><Link style={{ textDecoration: 'none' }} to='/womens'>Women</Link></li>
-                <li ref={(el) => menuRef.current[3] = el} className={menu === 'about' ? 'active' : ''} onClick={()=>{setMenu('about')}}><Link style={{ textDecoration: 'none' }} to='/about'>About</Link></li>
+                <li ref={(el) => menuRef.current[0] = el} className={menu === 'shop' ? 'active' : ''} onClick={()=>{setMenu('shop')}}><Link style={{ textDecoration: 'none', color: 'black' }} to='/'>Главная</Link></li>
+                <li ref={(el) => menuRef.current[1] = el} className={menu === 'men' ? 'active' : ''} onClick={()=>{setMenu('men')}}><Link style={{ textDecoration: 'none', color: 'black' }} to='/mens'>Мужчинам</Link></li>
+                <li ref={(el) => menuRef.current[2] = el} className={menu === 'women' ? 'active' : ''} onClick={()=>{setMenu('women')}}><Link style={{ textDecoration: 'none', color: 'black' }} to='/womens'>Женщинам</Link></li>
+                <li ref={(el) => menuRef.current[3] = el} className={menu === 'about' ? 'active' : ''} onClick={()=>{setMenu('about')}}><Link style={{ textDecoration: 'none', color: 'black' }} to='/about'>О нас</Link></li>
                 <div className="underline" style={underlineStyle}></div>
             </ul>
             <div className='nav-login-cart'>
@@ -47,7 +47,9 @@ export default function Header() {
                 <input type="checkbox" id="burger-checkbox" className="burger-checkbox" />
                 <label htmlFor="burger-checkbox" className="burger"></label>
                 <ul className="menu-list">
-                    <li><Link to='/login'><button>Login</button></Link></li>
+                    <li><Link to='/login'><button>Войти</button></Link></li>
+                    <li><Link to='/login'><button>Выйти</button></Link></li>
+                    <li><Link to='/login'><button>Доставка и способ оплаты</button></Link></li>
                 </ul>
             </div>
         </div>

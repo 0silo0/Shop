@@ -93,8 +93,7 @@
     display: flex;
     align-items: center;
     justify-content: right;
-    gap: 50px;
-    cursor: pointer;
+    gap: 60px;
 }
 
 .nav-login-cart img{
@@ -103,20 +102,29 @@
 }
 
 .nav-login-cart button{
-    width: 60px;
+    width: 100%;
     height: 30px;
     outline: none;
-    border: 1px solid #7a7a7a;
-    border-radius: 20px;
+    border: none;
+    border-radius: none;
     color: #515151;
     font-size: 14px;
     font-weight: 400;
     background: white;
+    cursor: pointer;
 }
 
 .nav-login-cart button:active{
-    background: #7a7a7a;
-    border-color: green;
+    border: 1px solid #7a7a7a;
+    border-radius: 75px;
+}
+
+.nav-login-cart button:hover{
+    border: 1px solid #7a7a7a;
+    border-radius: 75px;
+    background: #948f8f;
+    color: white;
+    height: auto;
 }
 
 .nav-cart-count{
@@ -126,7 +134,7 @@
     justify-content: center;
     align-items: center;
     margin-top: -30px;
-    margin-left: -56px;
+    margin-left: -64px;
     border-radius: 11px;
     font-size: 14px;
     background: red;
@@ -148,6 +156,7 @@
     background: transparent;
     width: 40px;
     height: 26px;
+    right: 40px;
 }
 
 .burger::before,
@@ -173,7 +182,6 @@
     transition: bottom .3s .15s, transform .3s;
 }
 
-/* Анимация для открытого состояния бургера */
 .burger-checkbox:checked + .burger::before {
     top: 11px;
     transform: rotate(45deg);
@@ -187,13 +195,14 @@
     transition: bottom .3s, transform .3s .15s;
 }
 
-/* Список меню, который открывается */
 .menu-list {
-    position: fixed; /* Фиксированное позиционирование для выпадающего меню */
-    top: 60px; /* Расстояние от верха экрана */
-    right: 20px; /* Прикрепляем к правой части экрана */
+    position: fixed;
+    top: 90px;
+    right: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 12px;
     padding: 20px;
     margin: 0;
@@ -202,17 +211,15 @@
     list-style-type: none;
     transform: translateX(100%);
     transition: transform .3s;
-    width: 150px; /* Ограничиваем ширину */
+    width: 100px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
 
-/* Когда бургер активен, меню появляется */
 .burger-checkbox:checked ~ .menu-list {
     transform: translateX(0);
 }
 
-/* Скрываем горизонтальный скролл, когда меню открыто */
 .burger-checkbox:checked ~ .menu-list {
     overflow-x: hidden;
 }
