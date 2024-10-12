@@ -48,8 +48,8 @@ export default function Header() {
                 <label htmlFor="burger-checkbox" className="burger"></label>
                 <ul className="menu-list">
                     <li><Link to='/login'><button>Войти</button></Link></li>
-                    <li><Link to='/login'><button>Выйти</button></Link></li>
-                    <li><Link to='/login'><button>Доставка и способ оплаты</button></Link></li>
+                    <li><Link to='/out'><button>Выйти</button></Link></li>
+                    <li><Link to='/pay'><button>Доставка и способ оплаты</button></Link></li>
                 </ul>
             </div>
         </div>
