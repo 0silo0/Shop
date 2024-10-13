@@ -3,7 +3,6 @@ import './Hero.css'
 import hand_icon from '../../assets/Frontend_Assets/hand_icon.png'
 import hero_image from '../../assets/Frontend_Assets/hero_image.png'
 import arrow_icon from '../../assets/Frontend_Assets/arrow.png'
-import for_hero from '../../assets/Frontend_Assets/for_hero.avif'
 
 const Hero = () => {
     return (

@@ -10,6 +10,9 @@ import Cart from './templates/cart/cart'
 import Product from './templates/product/product'
 import LoginSignUp from './templates/login-signup/login-signup'
 import About from './components/About/About'
+import Footer from './components/Footer/Footer'
+import men_banner from './assets/Frontend_Assets/banner_mens.png'
+import women_banner from './assets/Frontend_Assets/banner_women.png'
 
 
 function App() {
@@ -18,8 +21,8 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Shop/>}/>
-          <Route path='/mens' element={<ShopCategory category='men'/>}/>
-          <Route path='/womens' element={<ShopCategory category='women'/>}/>
+          <Route path='/mens' element={<ShopCategory banner={men_banner} category='men'/>}/>
+          <Route path='/womens' element={<ShopCategory banner={women_banner} category='women'/>}/>
             <Route path='product' element={<Product/>}>
               <Route path=':productId' element={<Product/>}/>
             </Route>
