@@ -1,8 +1,9 @@
 import './Header.css'
 import logo from '/cute-tanuki-pointer.png'
 import backpack from '/backpack.png'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ShopContext } from '../../context/ShopContenxt'
 
 
 export default function Header() {
@@ -10,6 +11,8 @@ export default function Header() {
     const [menu, setMenu] = useState('shop')
     const [underlineStyle, setUnderlineStyle] = useState({});
     const menuRef = useRef([]);
+
+    const {getTotalCartItems} = useContext(ShopContext);
 
     useEffect(() => {
         const activeIndex = ['shop', 'men', 'women', 'about'].indexOf(menu);
@@ -42,7 +45,7 @@ export default function Header() {
                 <Link to='/cart'>
                     <img src={backpack} alt="" />
                 </Link>
-                <div className="nav-cart-count">0</div>
+                <div className="nav-cart-count">{getTotalCartItems()}</div>
                 {/* <Link to='/login'><button>Login</button></Link> */}
                 <input type="checkbox" id="burger-checkbox" className="burger-checkbox" />
                 <label htmlFor="burger-checkbox" className="burger"></label>
