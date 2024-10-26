@@ -25,3 +25,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
 }
+
+@media (max-width: 1550px) {
+    .popular-item {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

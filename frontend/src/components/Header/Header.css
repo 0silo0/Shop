@@ -218,3 +218,28 @@
 .burger-checkbox:checked ~ .menu-list {
     overflow-x: hidden;
 }
+
+@media (max-width: 1280px) {
+    .navbar {
+        padding: 12px 50px;
+    }
+
+    .nav-logo img {
+        width: 40px;
+    }
+
+    .nav-logo p {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 12px 30px;
+    }
+
+    .nav-menu {
+        gap: 25px;
+        font-size: 14px;
+    }
+}
