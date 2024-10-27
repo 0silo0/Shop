@@ -2,10 +2,15 @@ import React, { useContext } from "react";
 import './CartItems.css'
 import { ShopContext } from "../../context/ShopContenxt";
 import cart_cross_icon from '../../assets/Frontend_Assets/cart_cross_icon.png';
+import { Link } from 'react-router-dom'
 
 const CartItems = () => {
     
     const {getTotalCartAmount, all_product, cartItems, removeFromCart} = useContext(ShopContext);
+
+    const handleCheckout = (itemId) => {
+        localStorage.setItem("selectedProductId", itemId); // Сохраняем ID товара
+    };
 
     return (
         <div className="cartitems">
@@ -16,6 +21,7 @@ const CartItems = () => {
                 <p>Quantity</p>
                 <p>Total</p>
                 <p>Remove</p>
+                <p>Перейти к оплате</p>
             </div>
             <hr />
             {all_product.map((e)=>{
@@ -28,6 +34,9 @@ const CartItems = () => {
                         <button className="cartitems-quantity">{cartItems[e.id]}</button>
                         <p>${e.new_price * cartItems[e.id]}</p>
                         <img className="cartitems-remove-icon" src={cart_cross_icon} alt=""  onClick={()=>{removeFromCart(e.id)}}/>
+                        <Link to='/pay'>
+                            <button onClick={() => handleCheckout(e.id)}>Оформить заказ</button>
+                        </Link>
                     </div>
                     <hr />
                 </div>
