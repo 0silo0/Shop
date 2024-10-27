@@ -8,11 +8,11 @@ const path = require("path");
 const cors = require("cors");
 
 const userRouter = require('./routes/user.routes')
-const postRouter = require('./routes/post.routes')
+const postRouter = require('./routes/product.routes')
 
 app.use(express.json());
 app.use('/api', userRouter)
-app.use('/api', postRouter)
+app.use('/addproduct', productRouter)
 
 const storage = multer.diskStorage({
     destination: './upload/images',
@@ -31,6 +31,8 @@ app.post('/upload', upload.single('product'), (req, res) => {
         image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
 })
+
+const 
 
 
 app.use(cors());
