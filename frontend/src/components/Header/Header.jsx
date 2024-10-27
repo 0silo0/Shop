@@ -11,6 +11,17 @@ export default function Header() {
     const [menu, setMenu] = useState('shop')
     const [underlineStyle, setUnderlineStyle] = useState({});
     const menuRef = useRef([]);
+    
+    const [timeNow, chekNowDate] = useState(new Date())
+    const [showSeconds, setShowSeconds] = useState(false)
+    
+    useEffect(() => {
+        const interval = setInterval(() => chekNowDate(new Date()), 1000)
+
+        return () => {
+            clearInterval(interval)
+        }
+    }, [])
 
     const {getTotalCartItems} = useContext(ShopContext);
 
@@ -33,6 +44,10 @@ export default function Header() {
                 <Link to='/'>
                 <img id='image' src={logo} alt="" /></Link>
                 <p>Tanuki</p>
+                <span onMouseEnter={() => setShowSeconds(true)} onMouseLeave={() => setShowSeconds(false)}>
+                    {timeNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: showSeconds ? '2-digit' : undefined,})}
+                    </span>
+                <span>{timeNow.toLocaleDateString([], {weekday: 'short', day: 'numeric'})}</span>
             </div>
             <ul className="nav-menu">
                 <li ref={(el) => menuRef.current[0] = el} className={menu === 'shop' ? 'active' : ''} onClick={()=>{setMenu('shop')}}><Link style={{ textDecoration: 'none', color: 'black' }} to='/'>Главная</Link></li>
