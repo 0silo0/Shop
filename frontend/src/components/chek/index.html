@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №4 - Калькулятор</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calc">
+        <div class="calc-screen">
+            <div class="input-field"></div>
+            <span class="parameters">
+                <select name="syst1" id="syst1">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10" selected="selected">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                </select>
+                
+                <!-- <div class="btn reverse">reverse</div> -->
+                
+                <select name="syst2" id="syst2">
+                    <option value="2" selected="selected">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                </select>
+            </span>
+            <div class="output-field"></div>
+        </div>
+        <!-- <div class="buttons">
+            <div class="btn seven light">7</div>
+            <div class="btn eight light">8</div>
+            <div class="btn nine light">9</div>
+            <div class="btn f light">F</div>
+            <div class="btn del dark">del</div>
+            <div class="btn four light">4</div>
+            <div class="btn five light">5</div>
+            <div class="btn six light">6</div>
+            <div class="btn e light">E</div>
+            <div class="btn clear dark">Clear</div>
+            <div class="btn one light">1</div>
+            <div class="btn two light">2</div>
+            <div class="btn three light">3</div>
+            <div class="btn d light">D</div>
+            <div class="btn eqsign dark">=</div>
+            <div class="btn zero light">0</div>
+            <div class="btn a light">A</div>
+            <div class="btn b light">B</div>
+            <div class="btn c light">C</div>
+        </div> -->
+
+        <span class="buttons">
+            <div class="number-buttons">
+                <div class="btn seven light">7</div>
+                <div class="btn eight light">8</div>
+                <div class="btn nine light">9</div>
+                <div class="btn f light">F</div>
+                <div class="btn four light">4</div>
+                <div class="btn five light">5</div>
+                <div class="btn six light">6</div>
+                <div class="btn e light">E</div>
+                <div class="btn one light">1</div>
+                <div class="btn two light">2</div>
+                <div class="btn three light">3</div>
+                <div class="btn d light">D</div>
+                <div class="btn zero light">0</div>
+                <div class="btn a light">A</div>
+                <div class="btn b light">B</div>
+                <div class="btn c light">C</div>
+            </div>
+            <div class="action-buttons">
+                <div class="btn del dark">del</div>
+                <div class="btn clear dark">AC</div>
+                <div class="btn eqsign dark">=</div>
+            </div>
+        </span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

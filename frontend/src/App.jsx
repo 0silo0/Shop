@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer'
 import men_banner from './assets/Frontend_Assets/banner_mens.png'
 import women_banner from './assets/Frontend_Assets/banner_women.png'
 import Pay from './components/Pay/Pay'
+import Calc from './components/Calc/Calc'
 
 
 function App() {
@@ -29,9 +30,9 @@ function App() {
           </Route>
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='/pay' element={<Pay/>}></Route>
-          
           <Route path='/login' element={<LoginSignUp/>}/>
           <Route path='/about' element={<About />}/>
+          <Route path='/calc' element={<Calc />}/>
         </Routes>
         </BrowserRouter>
   )

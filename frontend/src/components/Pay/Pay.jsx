@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Pay = () => {
 
-    const { all_product, cartItems } = useContext(ShopContext);
+    const { all_product, cartItems, removeFromCart, addToCart } = useContext(ShopContext);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
@@ -68,7 +68,12 @@ const Pay = () => {
                         <div className="pay-cartitems-format pay-cartitems-format-main">
                             <img src={selectedProduct.image} alt="" className="pay-cartitems-product-icon" />
                             <p>${selectedProduct.new_price}</p>
-                            <button className="pay-cartitems-quantity">{cartItems[selectedProduct.id]}</button>
+                            {/* <button className="pay-cartitems-quantity">{cartItems[selectedProduct.id]}</button> */}
+                            <div className="pay-cartitems-quantity">
+                                <button onClick={() => removeFromCart(selectedProduct.id)}>-</button>
+                                <span>{cartItems[selectedProduct.id]}</span>
+                                <button onClick={() => addToCart(selectedProduct.id)}>+</button>
+                            </div>
                             <p>${selectedProduct.new_price * cartItems[selectedProduct.id]}</p>
                         </div>
                         <hr />

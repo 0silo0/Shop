@@ -15,6 +15,8 @@ export default function Header() {
     const [timeNow, chekNowDate] = useState(new Date())
     const [showSeconds, setShowSeconds] = useState(false)
     
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    
     useEffect(() => {
         const interval = setInterval(() => chekNowDate(new Date()), 1000)
 
@@ -37,6 +39,9 @@ export default function Header() {
         }
     }, [menu]);
 
+    const handleBurgerClick = () => {
+        setIsMenuOpen((prev) => !prev);
+    };
     
     return (
         <div className='navbar'>
@@ -62,13 +67,23 @@ export default function Header() {
                 </Link>
                 <div className="nav-cart-count">{getTotalCartItems()}</div>
                 {/* <Link to='/login'><button>Login</button></Link> */}
-                <input type="checkbox" id="burger-checkbox" className="burger-checkbox" />
-                <label htmlFor="burger-checkbox" className="burger"></label>
+                <input type="checkbox" id="burger-checkbox" className="burger-checkbox"  onChange={handleBurgerClick}/>
+                <label htmlFor="burger-checkbox" className="burger" onClick={handleBurgerClick}></label>
                 <ul className="menu-list">
+                    {window.innerWidth <= 768 && (
+                        <>
+                            <li className='nav-m' onClick={() => { setMenu('shop'); setIsMenuOpen(false); }}><Link style={{ textDecoration: 'none', color: 'black' }} to='/'><button>Главная</button></Link></li>
+                            <li className='nav-m' onClick={() => { setMenu('men'); setIsMenuOpen(false); }}><Link style={{ textDecoration: 'none', color: 'black' }} to='/mens'><button>Мужчинам</button></Link></li>
+                            <li className='nav-m' onClick={() => { setMenu('women'); setIsMenuOpen(false); }}><Link style={{ textDecoration: 'none', color: 'black' }} to='/womens'><button>Женщинам</button></Link></li>
+                            <li className='nav-m' onClick={() => { setMenu('about'); setIsMenuOpen(false); }}><Link style={{ textDecoration: 'none', color: 'black' }} to='/about'><button>О нас</button></Link></li>
+                        </>
+                    )}
+
                     <li><Link to='/login'><button>Войти</button></Link></li>
                     <li><Link to='/out'><button>Выйти</button></Link></li>
                     <li><Link to='/pay'><button>Оформить заказ</button></Link></li>
                     <li><Link to='/pay'><button>Доставка и способ оплаты</button></Link></li>
+                    <li><Link to='/calc'><button>Калькулятор</button></Link></li>
                 </ul>
             </div>
         </div>

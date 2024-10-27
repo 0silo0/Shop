@@ -2,8 +2,8 @@
 
 .navbar{
     position: sticky;
-    top: 0; /* Прижимаем к верхней части экрана */
-    left: 0; /* Прижимаем к левому краю */
+    top: 0;
+    left: 0;
     width: 100%;
     background-color: white;
     z-index: 1000;
@@ -204,6 +204,7 @@
     z-index: 1;
 }
 
+
 .menu-list button {
     position: relative;
     display: inline-block;
@@ -215,6 +216,7 @@
     background: #948f8f;
     color: white;
 }
+
 
 .burger-checkbox:checked ~ .menu-list {
     transform: translateX(-10%);
@@ -246,5 +248,23 @@
     .nav-menu {
         gap: 25px;
         font-size: 14px;
+    }
+}
+
+.menu-list.open {
+    transform: translateX(0);
+}
+
+.chek-main-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Скрыть основное меню при малом размере экрана */
+    }
+
+    .chek-main-menu {
+        display: block;
     }
 }

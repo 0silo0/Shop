@@ -14,9 +14,9 @@
 
 .pay-cartitems-format-main {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.2fr 0.2fr 1.5fr 1fr;
     align-items: center;
-    gap: 75px;
+    gap: 100px;
     padding: 20px 0px;
     color: #454545;
     font-size: 18px;
@@ -33,10 +33,40 @@
 }
 
 .pay-cartitems-quantity {
-    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px; /* Ширина блока */
     height: 50px;
     border: 2px solid #ebebeb;
     background: white;
+    border-radius: 25px; /* Радиус закругления углов */
+}
+
+.pay-cartitems-quantity button {
+    width: 30px; /* Ширина кнопки */
+    height: 30px; /* Высота кнопки */
+    border: none;
+    background: #ff4141; /* Цвет фона кнопок */
+    color: white; /* Цвет текста на кнопках */
+    font-size: 20px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    border-radius: 50%; /* Закругление кнопок */
+    cursor: pointer; /* Курсор в виде указателя при наведении */
+    transition: background 0.3s ease; /* Плавный переход */
+}
+
+.pay-cartitems-quantity button:hover {
+    background: #ff6363; /* Цвет фона при наведении */
+}
+
+.pay-cartitems-quantity span {
+    margin: 0 10px; /* Отступы вокруг количества товара */
+    font-size: 18px; /* Размер шрифта */
+    font-weight: 600; /* Жирный шрифт */
+    color: #454545; /* Цвет текста */
+    width: 30px; /* Ширина для выравнивания */
+    text-align: center; /* Центрирование текста */
 }
 
 /* Основной контейнер для страницы заказа */
