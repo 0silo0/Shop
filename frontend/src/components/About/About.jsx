@@ -65,6 +65,9 @@ const About = () => {
         <div className="about">
             <h1>Свяжитесь с нами</h1>
             <p>Мы поднимаем моду на новый уровень!</p>
+            <ul>
+                <li>Телефон: +7 (951) 955-53-17</li>
+            </ul>
             <hr />
             <div id="map" className="map-container"></div>
             <button onClick={handleGenerateLocation} style={{ padding: "10px 20px", fontSize: "16px", marginTop: "20px" }}>

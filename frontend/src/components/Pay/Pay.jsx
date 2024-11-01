@@ -16,7 +16,7 @@ const Pay = () => {
         }
     }, [all_product]);
     
-    // Состояние для полей формы
+
     const [formData, setFormData] = useState({
         lastName: '',
         firstName: '',
@@ -32,7 +32,7 @@ const Pay = () => {
         notes: ''
     });
 
-    // Проверка ввода только русских букв
+
     const handleNameChange = (e) => {
         const { name, value } = e.target;
         if (/^[а-яА-ЯёЁ\s]*$/.test(value) || value === '') {
@@ -40,27 +40,46 @@ const Pay = () => {
         }
     };
 
-    // Обработчик изменений для других полей
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // Обработчик отправки формы
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted", formData);
-        // Логика отправки данных на сервер
+    
+        try {
+            const response = await fetch("http://localhost:5000/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ formData }),
+            });
+    
+            const data = await response.json();
+            if (response.ok) {
+                alert("Форма успешно отправлена!");
+            } else {
+                alert("Ошибка при отправке формы: " + data.message);
+            }
+        } catch (error) {
+            alert("Ошибка при отправке: " + error.message);
+        }
     };
+    
+    
 
     return (
         <div className="pay-cartitems">
             <div className="pay-cartitems">
                 <div className="pay-cartitems-format-main">
-                    <p>Products</p>
-                    <p>Price</p>
-                    <p>Quantity</p>
-                    <p>Total</p>
+                    <p>Продукт</p>
+                    <p>Цена</p>
+                    <p>Количество</p>
+                    <p>Итого</p>
                 </div>
                 <hr />
                 {selectedProduct && cartItems[selectedProduct.id] > 0 && (
@@ -83,7 +102,7 @@ const Pay = () => {
 
             {/* Форма оформления заказа */}
             <form className="order-form" onSubmit={handleSubmit}>
-                <h2>Shipping Information</h2>
+                <h2>Информация для заказа</h2>
                 <input 
                     type="text" 
                     name="lastName" 
@@ -109,27 +128,27 @@ const Pay = () => {
                 />
 
                 <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-                <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
-                <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
-                <input type="text" name="city" placeholder="City" value={formData.city} onChange={handleChange} required />
-                <input type="text" name="postalCode" placeholder="Postal Code" value={formData.postalCode} onChange={handleChange} required />
-                <input type="text" name="country" placeholder="Country" value={formData.country} onChange={handleChange} required />
+                <input type="tel" name="phone" placeholder="Телефон" value={formData.phone} onChange={handleChange} required />
+                <input type="text" name="address" placeholder="Адрес" value={formData.address} onChange={handleChange} required />
+                <input type="text" name="city" placeholder="Город" value={formData.city} onChange={handleChange} required />
+                <input type="text" name="postalCode" placeholder="Почтовый индекс" value={formData.postalCode} onChange={handleChange} required />
+                <input type="text" name="country" placeholder="Страна" value={formData.country} onChange={handleChange} required />
 
-                <h2>Order Details</h2>
+                <h2>Детали заказа</h2>
                 <select name="deliveryMethod" value={formData.deliveryMethod} onChange={handleChange} required>
-                    <option value="">Select Delivery Method</option>
-                    <option value="standard">Standard</option>
-                    <option value="express">Express</option>
+                    <option value="">Выберите метод доставки</option>
+                    <option value="standard">Обычный</option>
+                    <option value="express">Быстрый</option>
                 </select>
                 <select name="paymentMethod" value={formData.paymentMethod} onChange={handleChange} required>
-                    <option value="">Select Payment Method</option>
-                    <option value="creditCard">Credit Card</option>
+                    <option value="">Выберите метод оплаты</option>
+                    <option value="creditCard">Банковская карта</option>
                     <option value="paypal">PayPal</option>
-                    <option value="cashOnDelivery">Cash on Delivery</option>
+                    <option value="cashOnDelivery">Наличными</option>
                 </select>
-                <textarea name="notes" placeholder="Additional Notes" value={formData.notes} onChange={handleChange}></textarea>
+                <textarea name="notes" placeholder="Ваши пожелания для доставки" value={formData.notes} onChange={handleChange}></textarea>
 
-                <button type="submit" className="order-submit-button">Place Order</button>
+                <button type="submit" className="order-submit-button">Завершить оформление</button>
             </form>
         </div>
     );

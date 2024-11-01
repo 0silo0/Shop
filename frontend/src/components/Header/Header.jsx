@@ -50,7 +50,7 @@ export default function Header() {
                 <img id='image' src={logo} alt="" /></Link>
                 <p>Tanuki</p>
                 <span onMouseEnter={() => setShowSeconds(true)} onMouseLeave={() => setShowSeconds(false)}>
-                    {timeNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: showSeconds ? '2-digit' : undefined,})}
+                    {timeNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit'})}
                     </span>
                 <span>{timeNow.toLocaleDateString([], {weekday: 'short', day: 'numeric'})}</span>
             </div>

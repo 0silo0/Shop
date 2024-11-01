@@ -114,6 +114,18 @@
     margin-bottom: 15px;
 }
 
+.order-form select {
+    width: 103%;
+    height: 50px;
+    padding-left: 20px;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    color: #5c5c5c;
+    font-size: 18px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
 .order-form textarea {
     height: 100px;
     padding-top: 10px;
