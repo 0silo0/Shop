@@ -6,5 +6,6 @@ create table product (
     category_name varchar(100),
     image_url varchar,
     new_price varchar,
-    old_price varchar
+    old_price varchar,
+    available bool
 )

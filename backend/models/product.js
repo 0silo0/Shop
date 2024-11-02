@@ -24,16 +24,16 @@ const Product = sequelize.define('Product', {
     type: DataTypes.STRING(255),
     allowNull: false
   },
-  new_price: {
+  old_price: {
     type: DataTypes.STRING(50),
     allowNull: false
   },
-  old_price: {
-    type: DataTypes.STRING(15),
+  new_price: {
+    type: DataTypes.STRING(50),
     allowNull: true
   },
-  avilable: {
-    type: Boolean,
+  available: {
+    type: DataTypes.BOOLEAN,
     defaultValue: true,
   }
 }, {

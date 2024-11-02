@@ -1,11 +1,12 @@
 // controllers/UserController.js
-const User = require('../models/User');
+const User = require('../models/user');
 
 class UserController {
   async createUser(req, res) {
     try {
-      const { name, surname } = req.body;
-      const newUser = await User.create({ first_name: name, last_name: surname });
+      const { username, password_hash, first_name, last_name } = req.body;
+      // const newUser = await User.create({ first_name: first_name, last_name: last_name });
+      const newUser = await User.create(req.body)
       res.json(newUser);
     } catch (error) {
       res.status(500).json({ message: 'Error creating user', error });
