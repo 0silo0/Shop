@@ -5,6 +5,7 @@ const productController = require('../controller/product.controller')
 router.post('/create-product', productController.createProduct)
 router.get('/getproduct', productController.getProducts)
 router.get('/getproduct/:product_id', productController.getProduct)
+router.put('/editproduct/:product_id', productController.updateProduct)
 router.delete('/delete-product/:product_id', productController.deleteProduct)
 
 

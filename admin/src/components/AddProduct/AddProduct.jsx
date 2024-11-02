@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import './AddProuct.css';
+import './AddProduct.css';
 import upload_area from '../../assets/Admin_Assets/upload_area.svg';
 
-const AddProuct = () => {
+const AddProduct = () => {
 
     const [image, setImage] = useState(false);
     const [productDetails, setProductDetails] = useState({
@@ -70,11 +70,11 @@ const AddProuct = () => {
         <div className="addproduct-price">
             <div className="addproduct-itemfield">
                 <p>Цена</p>
-                <input value={productDetails.old_price} onChange={changeHandler} type="text" name="old_price" placeholder="Type here"/>
+                <input value={productDetails.old_price} onChange={changeHandler} type="number" name="old_price" placeholder="Type here"/>
             </div>
             <div className="addproduct-itemfield">
                 <p>Цена (новая)</p>
-                <input value={productDetails.new_price} onChange={changeHandler} type="text" name="new_price" placeholder="Type here"/>
+                <input value={productDetails.new_price} onChange={changeHandler} type="number" name="new_price" placeholder="Type here"/>
             </div>
         </div>
         <div className="addproduct-itemfield">
@@ -95,4 +95,4 @@ const AddProuct = () => {
   )
 }
 
-export default AddProuct;
+export default AddProduct;

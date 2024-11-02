@@ -39,23 +39,23 @@ class ProductController {
       }
     }
 
-    // async updateProduct(req, res) {
-    //   try {
-    //     const id = req.body.product_id
-    //     const product = await Product.findAll(id);
-    //     if (product) {
-    //       res.json(product)
-    //     } else {
-    //       res.status(404).json({ message: "Product not found", error });
-    //     }
-    //   } catch (error) {
-    //     res.status(500).json({ message: "Ошибка получения товара", error })
-    //   }
-    // }
+    async updateProduct(req, res) {
+      try {
+        const [product] = await Product.update(req.body, { where: { product_id: req.params.product_id } });
+        if (product === 0) {
+          return res.status(404).json({ message: "Продукт не найден" });
+        }
+
+        const updatedProduct = await Product.findByPk(req.params.product_id);
+        res.json(updatedProduct);
+      } catch (error) {
+        res.status(500).json({ message: "Ошибка обновления товара", error })
+      }
+    }
 
     async deleteProduct(req, res) {
       try {
-        const id = req.body.product_id
+        const id = req.params.product_id
         const product = await Product.destroy({ where: { product_id: id } });
         if (product) {
           res.json({ message: 'Product deleted' });

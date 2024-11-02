@@ -18,7 +18,7 @@ const Sidebar = () => {
                 <img src={list_product_icon} alt="" />
                 <p>Список товаров</p>
             </div>
-        </Link> 
+        </Link>
     </div>
   )
 }

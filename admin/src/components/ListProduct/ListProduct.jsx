@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './ListProduct.css';
 import cross_icon from '../../assets/Admin_Assets/cross_icon.png'
+import { Link } from "react-router-dom";
 
 const ListProduct = () => {
 
@@ -38,19 +39,21 @@ const ListProduct = () => {
             <p>Новая цена</p>
             <p>Категория</p>
             <p>Удалить</p>
+            <p>Редактировать</p>
         </div>
         <div className="listproduct-allproducts">
             <hr />
             {allProducts.map((product, index) => {
-                return <> <div className="listproduct-format-main listproduct-format">
+                return <React.Fragment key={product.product_id}> <div className="listproduct-format-main listproduct-format">
                     <img src={product.image_url} className="listproduct-product-icon" alt="" />
                     <p>${product.old_price}</p>
                     <p>${product.new_price}</p>
                     <p>{product.category_name}</p>
                     <img onClick={() => {removeProduct(product.product_id)}} src={cross_icon} className="listproduct-remove-icon" alt="" />
+                    <Link to={`/editproduct/${product.product_id}`} className="listproduct-edit-link">Редактировать</Link>
                 </div>
                 <hr />
-                </>
+                </React.Fragment>
             })}
         </div>
     </div>
