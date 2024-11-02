@@ -39,7 +39,7 @@ const AddProuct = () => {
 
         if (responseData.success) {
             product.image_url = responseData.image_url;
-            await fetch('http://localhost:4000/addproduct/create-product', {
+            await fetch('http://localhost:4000/product/create-product', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

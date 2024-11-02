@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use('/api', userRouter)
-app.use('/addproduct', productRouter)
+app.use('/product', productRouter)
 
 const storage = multer.diskStorage({
     destination: './upload/images',
