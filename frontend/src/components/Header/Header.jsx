@@ -79,8 +79,8 @@ export default function Header() {
                         </>
                     )}
 
-                    <li><Link to='/login'><button>Войти</button></Link></li>
-                    <li><Link to='/out'><button>Выйти</button></Link></li>
+                    {/* <li><Link to='/login'><button>Войти</button></Link></li> */}
+                    {localStorage.getItem('auth-token') ? <li><Link to='/out'><button onClick={() => {localStorage.removeItem('auth-token'); window.location.replace('/')}}>Выйти</button></Link></li> : <li><Link to='/login'><button>Войти</button></Link></li>}
                     <li><Link to='/pay'><button>Оформить заказ</button></Link></li>
                     <li><Link to='/pay'><button>Доставка и способ оплаты</button></Link></li>
                     <li><Link to='/calc'><button>Калькулятор</button></Link></li>
