@@ -11,7 +11,7 @@ const Pay = () => {
     useEffect(() => {
         const selectedProductId = localStorage.getItem("selectedProductId");
         if (selectedProductId) {
-            const product = all_product.find((item) => item.id === Number(selectedProductId));
+            const product = all_product.find((item) => item.product_id === Number(selectedProductId));
             setSelectedProduct(product);
         }
     }, [all_product]);
@@ -82,18 +82,18 @@ const Pay = () => {
                     <p>Итого</p>
                 </div>
                 <hr />
-                {selectedProduct && cartItems[selectedProduct.id] > 0 && (
-                    <div key={selectedProduct.id}>
+                {selectedProduct && cartItems[selectedProduct.product_id] > 0 && (
+                    <div key={selectedProduct.product_id}>
                         <div className="pay-cartitems-format pay-cartitems-format-main">
-                            <img src={selectedProduct.image} alt="" className="pay-cartitems-product-icon" />
+                            <img src={selectedProduct.image_url} alt="" className="pay-cartitems-product-icon" />
                             <p>${selectedProduct.new_price}</p>
                             {/* <button className="pay-cartitems-quantity">{cartItems[selectedProduct.id]}</button> */}
                             <div className="pay-cartitems-quantity">
-                                <button onClick={() => removeFromCart(selectedProduct.id)}>-</button>
-                                <span>{cartItems[selectedProduct.id]}</span>
-                                <button onClick={() => addToCart(selectedProduct.id)}>+</button>
+                                <button onClick={() => removeFromCart(selectedProduct.product_id)}>-</button>
+                                <span>{cartItems[selectedProduct.product_id]}</span>
+                                <button onClick={() => addToCart(selectedProduct.product_id)}>+</button>
                             </div>
-                            <p>${selectedProduct.new_price * cartItems[selectedProduct.id]}</p>
+                            <p>${selectedProduct.new_price * cartItems[selectedProduct.product_id]}</p>
                         </div>
                         <hr />
                     </div>

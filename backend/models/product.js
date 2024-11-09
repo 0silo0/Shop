@@ -1,6 +1,7 @@
 
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
+const CartItem = require('./cartItem');
 
 const Product = sequelize.define('Product', {
   product_id: {
@@ -38,7 +39,7 @@ const Product = sequelize.define('Product', {
   }
 }, {
   tableName: 'product',
-  timestamps: false // отключаем автоматические поля createdAt и updatedAt
+  timestamps: true // отключаем автоматические поля createdAt и updatedAt
 });
 
 module.exports = Product;

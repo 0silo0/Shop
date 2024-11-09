@@ -25,17 +25,18 @@ const CartItems = () => {
             </div>
             <hr />
             {all_product.map((e)=>{
-                if (cartItems[e.id] > 0) {
+                
+                if (cartItems[e.product_id] > 0) {
                     return             <div>
                     <div className="cartitems-format cartitems-format-main">
-                        <img src={e.image} alt="" className="cartitems-product-icon" />
-                        <p>{e.name}</p>
+                        <img src={e.image_url} alt="" className="cartitems-product-icon" />
+                        <p>{e.product_name}</p>
                         <p>${e.new_price}</p>
-                        <button className="cartitems-quantity">{cartItems[e.id]}</button>
-                        <p>${e.new_price * cartItems[e.id]}</p>
-                        <img className="cartitems-remove-icon" src={cart_cross_icon} alt=""  onClick={()=>{removeFromCart(e.id)}}/>
+                        <button className="cartitems-quantity">{cartItems[e.product_id]}</button>
+                        <p>${e.new_price * cartItems[e.product_id]}</p>
+                        <img className="cartitems-remove-icon" src={cart_cross_icon} alt=""  onClick={()=>{removeFromCart(e.product_id)}}/>
                         <Link to='/pay'>
-                            <button onClick={() => handleCheckout(e.id)}>Оформить заказ</button>
+                            <button onClick={() => handleCheckout(e.product_id)}>Оформить заказ</button>
                         </Link>
                     </div>
                     <hr />

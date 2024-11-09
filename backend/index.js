@@ -9,12 +9,16 @@ const cors = require("cors");
 
 const userRouter = require('./routes/user.routes')
 const productRouter = require('./routes/product.routes')
+const cartItemRouter = require('./routes/cartItem.routes')
+
+require('./models/associations');
 
 app.use(cors());
 
 app.use(express.json());
 app.use('/user', userRouter)
 app.use('/product', productRouter)
+app.use('/cart', cartItemRouter)
 
 const storage = multer.diskStorage({
     destination: './upload/images',

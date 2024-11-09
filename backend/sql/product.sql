@@ -9,3 +9,7 @@ create table product (
     old_price varchar,
     available bool
 )
+
+ALTER TABLE product
+ADD COLUMN createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;

@@ -26,3 +26,16 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
 }
+
+.new-collections-category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    color: black;
+}
+
+.new-collections-category span:hover {
+    color: red;
+    cursor: pointer;
+}

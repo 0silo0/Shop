@@ -35,10 +35,4 @@ const CartItem = sequelize.define('CartItem', {
   timestamps: false // отключаем автоматические поля createdAt и updatedAt
 });
 
-// Связи
-User.hasMany(CartItem, { foreignKey: 'user_id' });
-Product.hasMany(CartItem, { foreignKey: 'product_id' });
-CartItem.belongsTo(User, { foreignKey: 'user_id' });
-CartItem.belongsTo(Product, { foreignKey: 'product_id' });
-
 module.exports = CartItem;
