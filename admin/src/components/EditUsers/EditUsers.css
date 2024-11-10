@@ -1,0 +1,34 @@
+.edit-user {
+    padding: 20px;
+  }
+  
+  .edit-user h1 {
+    text-align: center;
+  }
+  
+  .edit-user form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .edit-user label {
+    margin: 10px 0;
+  }
+  
+  .edit-user input {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .edit-user button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .edit-user button:hover {
+    background-color: #45a049;
+  }
+  

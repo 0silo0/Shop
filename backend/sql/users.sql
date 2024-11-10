@@ -1,6 +1,7 @@
 
 create table users(
     user_id serial primary key,
+    isAdmin bool,
     username varchar(20),
     password_hash varchar,
     email varchar(100),

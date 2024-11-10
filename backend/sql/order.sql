@@ -1,6 +1,7 @@
 CREATE TABLE orders (
     "order_id" serial PRIMARY KEY,        -- ID заказа
     "user_id" INT NOT NULL,                            -- ID пользователя, который создал заказ
+    "product_id" INT NOT NULL,
     "lastName" VARCHAR(255) NOT NULL,                  -- Фамилия заказчика
     "firstName" VARCHAR(255) NOT NULL,                 -- Имя заказчика
     "middleName" VARCHAR(255),                         -- Отчество заказчика
@@ -14,6 +15,7 @@ CREATE TABLE orders (
     "paymentMethod" VARCHAR(255) NOT NULL,             -- Метод оплаты
     "notes" TEXT,                                      -- Дополнительные заметки
     "status" VARCHAR(50) DEFAULT 'в обработке',       -- Статус заказа (по умолчанию 'в обработке')
+    "quantity" INT NOT NULL,
     "total" FLOAT NOT NULL,                            -- Общая сумма заказа
     "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   -- Время создания
     "updatedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- Время последнего обновления

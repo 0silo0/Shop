@@ -19,6 +19,16 @@ const Sidebar = () => {
                 <p>Список товаров</p>
             </div>
         </Link>
+        <Link to={"/users"} style={{textDecoration: "none"}}>
+            <div className="sidebar-item">
+                <p>Список пользователей</p>
+            </div>
+        </Link>
+        <Link to={"/orders"} style={{textDecoration: "none"}}>
+            <div className="sidebar-item">
+                <p>Список пользователей</p>
+            </div>
+        </Link>
     </div>
   )
 }

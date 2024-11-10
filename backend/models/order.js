@@ -12,6 +12,10 @@ const Order = sequelize.define('Order', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    product_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     lastName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -61,6 +65,10 @@ const Order = sequelize.define('Order', {
     status: {
         type: DataTypes.STRING,
         defaultValue: 'в обработке'
+    },
+    quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     total: {
         type: DataTypes.FLOAT,

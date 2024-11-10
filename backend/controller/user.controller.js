@@ -62,7 +62,7 @@ class UserController {
 
   async getOneUser(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.params.user_id;
       const user = await User.findByPk(id);
       if (user) {
         res.json(user);
@@ -76,22 +76,23 @@ class UserController {
 
   async updateUser(req, res) {
     try {
-      const { user_id, first_name } = req.body;
-      const [updated] = await User.update({ first_name }, { where: { user_id } });
+      const { user_id, username, first_name, last_name, email } = req.body;
+      
+      const [updated] = await User.update({ username, first_name, last_name, email }, { where: { user_id } });
       if (updated) {
         const updatedUser = await User.findByPk(user_id);
-        res.json(updatedUser);
+        res.json(updatedUser); // Отправляем обновленные данные
       } else {
-        res.status(404).json({ message: 'User not found' });
+        res.status(404).json({ message: 'Пользователь не найден' });
       }
     } catch (error) {
-      res.status(500).json({ message: 'Error updating user', error });
+      res.status(500).json({ message: 'Ошибка при обновлении пользователя', error });
     }
   }
 
   async deleteUser(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.params.user_id;
       const deleted = await User.destroy({ where: { user_id: id } });
       if (deleted) {
         res.json({ message: 'User deleted' });

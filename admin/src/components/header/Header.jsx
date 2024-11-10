@@ -7,7 +7,11 @@ const Header = () => {
   return (
     <div className="navbar">
         <img src={navlogo} alt="" className="nav-logo" />
-        <img src={navProfile} alt="" className="nav-profile"/>
+        <div>
+          {localStorage.getItem('auth-token') ? <button onClick={() => {localStorage.removeItem('auth-token'); window.location.replace('/')}}>Выйти</button> : <></>}
+          <img src={navProfile} alt="" className="nav-profile"/>
+        </div>
+
     </div>
   )
 }

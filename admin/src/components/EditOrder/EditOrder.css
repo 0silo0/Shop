@@ -1,0 +1,100 @@
+/* EditOrder.css */
+
+/* Общие стили */
+.edit-order {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+  
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+/* Стили для формы */
+form {
+    display: flex;
+    flex-direction: column;
+}
+  
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+  
+input, select, textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Специфичные стили для select */
+select {
+    appearance: none; /* Убирает стандартные стрелочки браузера */
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
+    background-color: #fff; /* Фон */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3E%3Cpath fill="none" d="M5 7L10 12L15 7H5Z"%3E%3C/path%3E%3C/svg%3E'); /* Стрелочка */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px; /* Место для стрелочки */
+}
+  
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+  
+input[type="number"],
+input[type="text"],
+input[type="email"],
+select {
+    box-sizing: border-box;
+}
+  
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+  
+button:hover {
+    background-color: #0056b3;
+}
+  
+
+@media (max-width: 768px) {
+    .edit-order {
+        width: 90%;
+        padding: 10px;
+    }
+  
+    h1 {
+        font-size: 20px;
+    }
+  
+    label {
+        font-size: 14px;
+    }
+  
+    input, select, textarea, button {
+        font-size: 14px;
+    }
+}
