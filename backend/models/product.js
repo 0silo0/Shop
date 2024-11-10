@@ -39,7 +39,7 @@ const Product = sequelize.define('Product', {
   }
 }, {
   tableName: 'product',
-  timestamps: true // отключаем автоматические поля createdAt и updatedAt
+  timestamps: true
 });
 
 module.exports = Product;

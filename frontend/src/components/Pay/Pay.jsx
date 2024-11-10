@@ -47,26 +47,50 @@ const Pay = () => {
     };
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-    
+    const handleSubmit = async () => {
         try {
-            const response = await fetch("http://localhost:5000/send-email", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ formData }),
-            });
-    
-            const data = await response.json();
-            if (response.ok) {
-                alert("Форма успешно отправлена!");
-            } else {
-                alert("Ошибка при отправке формы: " + data.message);
+            if (localStorage.getItem('auth-token')) {
+
+                const selectedProductId = localStorage.getItem("selectedProductId");
+
+                if (!selectedProductId) {
+                    alert("Продукт не выбран.");
+                    return;
+                }
+
+                const orderData = {
+                    orderItems: [
+                        {
+                            product_id: Number(selectedProductId),
+                            quantity: cartItems[selectedProductId]
+                        }
+                    ],
+                    customerInfo: formData
+                };
+                
+                const response = await fetch('http://localhost:4000/order/create', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                        'auth-token': `${localStorage.getItem('auth-token')}`,
+                    },
+                    body: JSON.stringify(orderData)
+                });
+
+                if (!response.ok) {
+                    console.error("Failed response:", result);
+                    throw new Error('Ошибка при оформлении заказа');
+                }
+
+                const result = await response.json();
+                console.log("Order created:", result);
             }
+
+            alert("Ваш заказ успешно оформлен!");
         } catch (error) {
-            alert("Ошибка при отправке: " + error.message);
+            console.error("Error in handleSubmit:", error);
+            alert("Произошла ошибка при оформлении заказа. Попробуйте еще раз.");
         }
     };
     
